@@ -18,6 +18,7 @@ export class ApplyForm implements OnInit {
   vacancyId!: number;
   applicantId!: string;
   showSuccessModal = false;
+  showFailedModal = false;
 
 
   // Reference to enum for use in template
@@ -170,7 +171,8 @@ export class ApplyForm implements OnInit {
           }
         }
         
-        alert(errorMsg);
+         alert(errorMsg);
+          // this.showFailedModal = true;
       }
     });
   }
@@ -194,5 +196,10 @@ export class ApplyForm implements OnInit {
   onSuccessModalClose(): void {
   this.showSuccessModal = false;
   this.router.navigate(['/My-Applications']); }
+
+  onFailedModalClose(): void {
+  this.showFailedModal = false;
+    
+}
 
 }

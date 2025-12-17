@@ -36,7 +36,7 @@ export class MyApplications implements OnInit {
   applications: ApplicationDto[] = [];
   isLoading = true;
   errorMessage = '';
-  applicantId = '97dd5fc3-2db5-4696-9528-94979a0656f0';
+  applicantId = '9798fcb6-5cc8-41e4-82fd-152010e9db17';
 
   // Summary counts
   totalApplications = 0;
@@ -77,13 +77,13 @@ export class MyApplications implements OnInit {
     if (token) {
       const payload = this.parseJwt(token);
       //this.applicantId = payload.sub || payload.userId || payload.nameid || payload.id;
-      this.applicantId = '97dd5fc3-2db5-4696-9528-94979a0656f0';
+      this.applicantId = '9798fcb6-5cc8-41e4-82fd-152010e9db17';
 
     }
     
     if (!this.applicantId) {
       // Fallback for testing - remove in production
-      this.applicantId = '"97dd5fc3-2db5-4696-9528-94979a0656f0"';
+      this.applicantId = '9798fcb6-5cc8-41e4-82fd-152010e9db17';
       console.warn('Using test applicantId. Please implement proper authentication.');
     }
     

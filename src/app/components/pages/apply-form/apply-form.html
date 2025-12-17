@@ -199,7 +199,7 @@
     </div>
   </form>
 
-   <div class="modal-overlay" *ngIf="showSuccessModal" (click)="onSuccessModalClose()">
+  <div class="modal-overlay" *ngIf="showSuccessModal" (click)="onSuccessModalClose()">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <div class="modal-icon">
       <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -210,6 +210,20 @@
     <h2>Success!</h2>
     <p> Applied successfully</p>
     <button class="btn btn-primary" (click)="onSuccessModalClose()">
+      OK
+    </button>
+  </div>
+  <div class="modal-overlay" *ngIf="showFailedModal" (click)="onFailedModalClose()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10" stroke="#22c55e" fill="#f0fdf4"></circle>
+        <polyline points="9 12 11 14 15 10" stroke="#22c55e"></polyline>
+      </svg>
+    </div>
+    <h2>FailedtoApply!</h2>
+    <p> Failedto Apply</p>
+    <button class="btn btn-primary" (click)="onFailedModalClose()">
       OK
     </button>
   </div>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HR Management System</title>
+  <link href="https://fonts.bunny.net/css?family=Open+Sans:400,600|Montserrat:700" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #E67E22;
+      --secondary-color: #628141;
+      --accent-color: #8BAE66;
+      --light-color: #EBD5AB;
+      --white-color: #FFFFFF;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary-color);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #d66a1a;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-color) 0%, #d66a1a 100%);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 48px;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeInUp 1s ease 0.2s both;
+    }
+
+    .cta-button {
+      background: white;
+      color: var(--primary-color);
+      padding: 15px 40px;
+      border: none;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      animation: fadeInUp 1s ease 0.4s both;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      background: var(--light-color);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    /* Section Styles */
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--primary-color);
+      font-size: 36px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    /* Cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: white;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-color), #d66a1a);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      color: var(--secondary-color);
+      font-weight: 600;
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .card-text {
+      color: #666;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    /* About Section */
+    .about-content {
+      background: white;
+      border-radius: 10px;
+      padding: 40px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      line-height: 1.8;
+      color: #666;
+    }
+
+    .about-content p {
+      margin-bottom: 15px;
+    }
+
+    /* Stats Section */
+    .stats {
+      background: var(--secondary-color);
+      padding: 60px 20px;
+      color: white;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .stat-item h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .stat-item p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    /* Footer */
+    .footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .footer p {
+      margin: 5px 0;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 10px;
+      padding: 40px;
+      max-width: 600px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+      animation: slideIn 0.3s ease;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 30px;
+      color: #999;
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+
+    .modal-close:hover {
+      color: var(--primary-color);
+    }
+
+    .vacancy-item {
+      border-bottom: 1px solid #eee;
+      padding: 20px 0;
+    }
+
+    .vacancy-item:last-child {
+      border-bottom: none;
+    }
+
+    .vacancy-title {
+      color: var(--primary-color);
+      font-weight: 600;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .vacancy-details {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .vacancy-description {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .apply-button {
+      background: var(--primary-color);
+      color: white;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .apply-button:hover {
+      background: #d66a1a;
+      transform: translateY(-2px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to Our HR Management System</h1>
+    <p>Empowering organizations with innovative human resource solutions for a better workplace</p>
+  <button class="cta-button" (click)="openVacancies()">View Open Positions</button>
+  </section>
+
+  <!-- About Us Section -->
+  <div class="container">
+    <section class="section">
+      <h2 class="section-title">About Us</h2>
+      <div class="about-content">
+        <p>We are a leading HR management system dedicated to transforming the way organizations manage their most valuable asset - their people. With years of experience in human resources and technology, we've developed a comprehensive solution that streamlines HR processes and enhances employee experiences.</p>
+        <p>Our platform combines cutting-edge technology with deep HR expertise to deliver solutions that are both powerful and easy to use. From recruitment and onboarding to performance management and employee development, we provide the tools you need to build a thriving workplace culture.</p>
+        <p>We believe that great companies are built on great people management. That's why we're committed to helping organizations of all sizes create workplaces where employees can thrive and businesses can grow.</p>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+      <h2 class="section-title">Why Choose Us</h2>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">👥</div>
+          <h3 class="card-title">Talent Management</h3>
+          <p class="card-text">Streamline your recruitment process with our advanced applicant tracking system and find the perfect candidates for your organization.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <h3 class="card-title">Performance Analytics</h3>
+          <p class="card-text">Make data-driven decisions with comprehensive analytics and insights into your workforce performance and engagement.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎯</div>
+          <h3 class="card-title">Employee Development</h3>
+          <p class="card-text">Foster growth and development with personalized learning paths and career progression tools for your team members.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3 class="card-title">Automated Workflows</h3>
+          <p class="card-text">Save time and reduce errors with automated HR workflows for payroll, leave management, and administrative tasks.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔒</div>
+          <h3 class="card-title">Secure & Compliant</h3>
+          <p class="card-text">Keep your data safe with enterprise-grade security and stay compliant with labor laws and regulations.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💬</div>
+          <h3 class="card-title">24/7 Support</h3>
+          <p class="card-text">Our dedicated support team is always available to help you get the most out of our HR management system.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <h3>500+</h3>
+        <p>Companies Trust Us</p>
+      </div>
+      <div class="stat-item">
+        <h3>50K+</h3>
+        <p>Employees Managed</p>
+      </div>
+      <div class="stat-item">
+        <h3>95%</h3>
+        <p>Client Satisfaction</p>
+      </div>
+      <div class="stat-item">
+        <h3>24/7</h3>
+        <p>Support Available</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <div class="container">
+    <section class="section">
+      <h2 class="section-title">Get Started Today</h2>
+      <div class="about-content" style="text-align: center;">
+        <p style="font-size: 18px; margin-bottom: 30px;">Ready to transform your HR operations? Join hundreds of companies that trust our platform to manage their workforce effectively.</p>
+        <button class="cta-button" (click)="openVacancies()">Explore Career Opportunities</button>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 HR Management System. All rights reserved.</p>
+    <p>Contact us: info@hrmanagement.com | +1 (555) 123-4567</p>
+  </footer>
+
+  <!-- Vacancy Modal -->
+  <div id="vacancyModal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeVacancies()">&times;</button>
+      <h2 class="section-title" style="margin-top: 20px;">Open Positions</h2>
+      
+      <div class="vacancy-item">
+        <h3 class="vacancy-title">Senior HR Manager</h3>
+        <p class="vacancy-details">📍 Location: Cairo, Egypt | 💼 Full-time | 📅 Posted: 2 days ago</p>
+        <p class="vacancy-description">We're looking for an experienced HR Manager to lead our HR department and drive strategic initiatives. The ideal candidate will have 5+ years of experience in HR management and a proven track record of developing and implementing HR policies.</p>
+        <button class="apply-button" onclick="alert('Application form will open here')">Apply Now</button>
+      </div>
+
+      <div class="vacancy-item">
+        <h3 class="vacancy-title">Recruitment Specialist</h3>
+        <p class="vacancy-details">📍 Location: Remote | 💼 Full-time | 📅 Posted: 1 week ago</p>
+        <p class="vacancy-description">Join our talent acquisition team as a Recruitment Specialist. You'll be responsible for sourcing, screening, and hiring top talent across various departments. 3+ years of recruitment experience required.</p>
+        <button class="apply-button" onclick="alert('Application form will open here')">Apply Now</button>
+      </div>
+
+      <div class="vacancy-item">
+        <h3 class="vacancy-title">HR Business Partner</h3>
+        <p class="vacancy-details">📍 Location: Alexandria, Egypt | 💼 Full-time | 📅 Posted: 3 days ago</p>
+        <p class="vacancy-description">We need an HR Business Partner to work closely with business leaders and provide strategic HR guidance. Experience in organizational development and change management is essential.</p>
+        <button class="apply-button" onclick="alert('Application form will open here')">Apply Now</button>
+      </div>
+
+      <div class="vacancy-item">
+        <h3 class="vacancy-title">Payroll Administrator</h3>
+        <p class="vacancy-details">📍 Location: Cairo, Egypt | 💼 Full-time | 📅 Posted: 5 days ago</p>
+        <p class="vacancy-description">Looking for a detail-oriented Payroll Administrator to manage employee compensation, benefits, and payroll processing. Strong knowledge of payroll systems and labor laws required.</p>
+        <button class="apply-button" onclick="alert('Application form will open here')">Apply Now</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

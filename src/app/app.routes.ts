@@ -30,6 +30,7 @@ import { EmployeeComponent } from './components/pages/employee-component/employe
 import { AddEmployeeComponent } from './components/pages/employee-component/add-employee/add-employee.component';
 import { LeaveTypeComponent } from './components/pages/leavetypscomponant/leavetypscomponant';
 import { CompanyInfoComponent } from './components/pages/company-info/company-info.component';
+import { LandingPage } from './components/pages/landing-page/landing-page';
 
 export const routes: Routes = [
   {
@@ -40,6 +41,7 @@ export const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
   },
+  { path: 'landing-page', component: LandingPage },
   { path: 'openvacancies', component: OpenVacancies },
   { path: 'apply/:id', component: ApplyForm },
   { path: 'my-applications', component: MyApplications },
